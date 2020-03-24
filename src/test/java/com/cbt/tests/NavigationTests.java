@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class NavigationTests {
     public void testChrome() throws InterruptedException {
-        WebDriver driver = BrowserFactory.getDriver("chrome");
+        WebDriver driver = BrowserFactory.getDriver("Chrome");
         assert driver != null;
         driver.get("https://google.com");
         driver.manage().window().maximize();
@@ -25,7 +25,7 @@ public class NavigationTests {
         driver.close();
     }
     public void testSafari() throws Exception {
-        WebDriver driver = BrowserFactory.getDriver("safari");
+        WebDriver driver = BrowserFactory.getDriver("Safari");
         assert driver != null;
         driver.get("https://google.com");
         driver.manage().window().maximize();
@@ -42,7 +42,7 @@ public class NavigationTests {
         driver.close();
     }
     public void testFirefox() throws Exception {
-        WebDriver driver = BrowserFactory.getDriver("firefox");
+        WebDriver driver = BrowserFactory.getDriver("Firefox");
         assert driver != null;
         driver.get("https://google.com");
         driver.manage().window().maximize();

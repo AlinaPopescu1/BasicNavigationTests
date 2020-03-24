@@ -6,21 +6,27 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class BrowserFactory {
-    public static WebDriver getDriver(String type) {
-        if (type.equalsIgnoreCase("chrome")) {
+    public static WebDriver getDriver(String browser) {
+        String opSysName = System.getProperty("os.name");
+        WebDriver webDriver = null;
+        if (browser.contains("Chrome")) {
             WebDriverManager.chromedriver().setup();
-            return new ChromeDriver();
-        } else if (type.equalsIgnoreCase("firefox")) {
+            webDriver = new ChromeDriver();
+        } else if (browser.contains("Firefox")) {
             WebDriverManager.firefoxdriver().setup();
-            return new FirefoxDriver();
-        } else if (type.equalsIgnoreCase(("safari"))) {
+            webDriver = new FirefoxDriver();
+        } else if (browser.contains(("Safari"))) {
             System.setProperty("webdriver.safari.driver", "C:/safaridriver.exe");
-            return new SafariDriver();
-        } else if (type.equalsIgnoreCase("edge")
-                || type.equalsIgnoreCase("internet explorer")) {
-            return null;
-        }else{
+            webDriver = new SafariDriver();
+        } else if (browser.contains("Edge")
+                && opSysName.contains("Mac")
+                ||
+                browser.contains("Explorer")
+                        && opSysName.contains("Mac")) {
             return null;
         }
+         return webDriver;
     }
 }
+
+
